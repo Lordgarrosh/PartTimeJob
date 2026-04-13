@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/frontpage.css">
+    <link rel="stylesheet" href="../css/landingpage.css">
     <title>Document</title>
 </head>
 
 <body>
+
+<!-- Choosing a role -->
+<div class="modalBG hide" id="loginModal" >
+<div class="chooseRoleContainer p-5">
+  <h1>Login</h1>
+  <div class="d-flex gap-5 mt-5">
+    <button  onclick="window.location.href='/login?r=Employer';" class="btn btn-primary">Employer</button>
+    <button  onclick="window.location.href='/login?r=Employee';" class="btn btn-primary">Employee</button>
+  </div>
+</div>
+</div>
+
+<div class="modalBG hide" id="registerModal" >
+<div class="chooseRoleContainer p-5">
+  <h1>Register</h1>
+  <div class="d-flex gap-5 mt-5"> 
+    <button  onclick="window.location.href='/register?r=Employer';" class="btn btn-primary">Employer</button>
+    <button  onclick="window.location.href='/register?r=Employee';" class="btn btn-primary">Employee</button>
+  </div>
+</div>
+</div>
+
  <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><label >PartTime PH</label> <img src="../assets/philflag.jpg" width="75" height=35" alt="asd"></a>
@@ -18,7 +40,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Find Job</a>
+          <a class="nav-link active" aria-current="page" href="/Fi">Find Job</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Find Talents</a>
@@ -26,8 +48,8 @@
         </li>
 </ul>
     <div class="d-flex gap-5 me-5" >
-        <button class="btn btn-primary">Sign In</button>
-         <button class="btn btn-primary">Sign Up</button>
+        <button onclick="openModal('loginModal')" class="btn btn-primary">Sign In</button>
+         <button onclick="openModal('registerModal')"  class="btn btn-primary">Sign Up</button>
     </div>
     </div>
   </div>
@@ -45,6 +67,16 @@
     </div>
   </div>
 </main>
+<script>
+
+  function openModal(currentModal) {
+      let modalActive = document.getElementById(currentModal);
+    const isHidden = modalActive.classList.contains("hide");
+
+    modalActive.classList.toggle("hide", !isHidden);
+    modalActive.classList.toggle("show", isHidden);
+  }
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

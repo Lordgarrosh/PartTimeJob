@@ -10,11 +10,11 @@ class Controller {
         require __DIR__ . '/../View/' . $viewPath  . '.php';
     }
 
-    protected function model(string $modelName, string $user = "", array $data = []) 
+    protected function model(string $modelName) 
     {
         $modelName = trim($modelName, '/');
         require_once __DIR__ . '/../Model/' . $modelName . '.php'; 
-        return new $modelName;
+        return new $modelName;  
     }
 
     protected function redirect($url,  array $params = []) {
